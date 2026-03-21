@@ -27,6 +27,8 @@ pipeline {
                         id
                         echo $HOME
                         pwd
+                        sudo chown -R [110]:[114] /var/lib/jenkins
+
                         echo 'Buid Docker Image'
                         docker build -t neha/cicd-e2e:${BUILD_NUMBER} .
 
