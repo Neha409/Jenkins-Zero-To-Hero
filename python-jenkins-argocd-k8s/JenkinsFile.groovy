@@ -5,12 +5,12 @@ pipeline {
             image 'docker:24'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
-        environment {
+        
+
+    }
+    environment {
         HOME = "/home/azureuser"
     }
-
-    }
-
     stages {
         stage("GIT checkout") {
         steps {
