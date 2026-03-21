@@ -9,7 +9,7 @@ pipeline {
 
     }
     environment {
-        HOME = "/home/azureuser"
+        HOME = "/var/lib/jenkins"
     }
     stages {
         stage("GIT checkout") {
