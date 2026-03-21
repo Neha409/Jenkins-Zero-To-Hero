@@ -24,6 +24,9 @@ pipeline {
             steps {
                 script {
                     sh '''
+                        whoami
+                        echo $HOME
+                        docker version
                         echo 'Buid Docker Image'
                         docker build -t neha/cicd-e2e:${BUILD_NUMBER} python-jenkins-argocd-k8s/.
 
