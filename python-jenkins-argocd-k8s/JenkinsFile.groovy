@@ -21,7 +21,7 @@ pipeline {
                 script {
                     sh '''
                         echo 'Buid Docker Image'
-                        docker build -t neha/cicd-e2e:${BUILD_NUMBER}
+                        docker build -t neha/cicd-e2e:${BUILD_NUMBER} python-jenkins-argocd-k8s/.
 
                     '''
                 }
