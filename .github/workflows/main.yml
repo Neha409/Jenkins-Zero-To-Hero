@@ -12,6 +12,10 @@ jobs:
         uses: actions/checkout@v4
       - name: "install python "
         uses: actions/setup-python@v1
+      - name: install dependency
+        run: |
+           python -m pip install --upgrade pip 
+           pip install -r python-jenkins-argocd-k8s/requirements.txt
       - name: setup docker
         uses: docker/setup-buildx-action@v3
 
