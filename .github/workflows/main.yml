@@ -27,5 +27,5 @@ jobs:
         
         run: |
           pwd
-          docker build -t neha/demo:latest ./python-jenkins-agrocd-k8s
+          docker build -t neha/demo:latest python-jenkins-argocd-k8s/.
   
