@@ -1,6 +1,7 @@
 name: "build the ci"
 
-on: [push]
+on: [push,workflow_dispatch]
+
 
 jobs:
   build:
@@ -17,7 +18,7 @@ jobs:
       - name: "azure login"
         uses: azure/login@v1
         with:
-          creds: ${{ vars.AZURE_CREDENTIALS }}
+          creds: ${{ vars.AZURE_CRED }}
 
       - name: Login to azure container resigtry
         run: az acr login --${{ vars.ACR_NAME }}
