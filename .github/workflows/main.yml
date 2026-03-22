@@ -1,23 +1,27 @@
-Name: "build the ci"
+name: "build the ci"
 
 on: [push]
 
-job:
-  run_on: ubuntu-latest
-  uses: actions/checkout@4
-  name: install python 
-  uses: actions/setup-python
-  name: setup docker
-  uses: docker/setup-buildx-action@v3
+jobs:
+  build:
+    name: "build the images"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout"
+        uses: actions/checkout@v4
+      # - name: "install python "
+      #   uses: actions/setup-python
+      - name: setup docker
+        uses: docker/setup-buildx-action@v3
 
-  name: azure login
-  uses: azure/login@v1
-  with:
-    creds: ${{ var.AZURE_CREDENTIALS }}
+      - name: "azure login"
+        uses: azure/login@v1
+        with:
+          creds: ${{ vars.AZURE_CREDENTIALS }}
 
-  name: Login to azure container resigtry
-  run: az acr login --${{ var.ACR_NAME }}
+      - name: Login to azure container resigtry
+        run: az acr login --${{ vars.ACR_NAME }}
 
-  name: build the docker image
-  run: docker build -t neha/demo:latest python-jenkins-agrocd-k8s/.
+      - name: build the docker image
+        run: docker build -t neha/demo:latest python-jenkins-agrocd-k8s/.
   
